@@ -1,0 +1,31 @@
+{
+    "executionRoleArn": "",
+    "taskRoleArn": "",
+    "containerDefinitions": [
+        {
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/aws/ecs/kiani",
+                    "awslogs-region": "ap-southeast-1",
+                    "awslogs-stream-prefix": "fargate"
+                }
+            },
+            "portMappings": [
+                {
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "containerPort": 3000
+                }
+            ],
+            "name": "kiani-app"
+        }
+    ],
+    "memory": "512",
+    "family": "kiani-app-td",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256" 
+}
